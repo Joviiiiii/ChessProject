@@ -1,7 +1,8 @@
 public class Pawn extends Piece {
 
-    public Pawn(ChessColor color) {
-        super(color);
+
+    public Pawn(String id, ChessColor color) {
+        super(id, color);
     }
 
     @Override

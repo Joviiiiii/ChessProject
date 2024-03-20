@@ -1,7 +1,9 @@
 public abstract class Piece {
+
+    String id;
     ChessColor color;
-    public Piece(ChessColor color) {
-        this.color = color;
+    public Piece(String id, ChessColor color) {
+        this.id = id; this.color = color;
     }
 
     //Move

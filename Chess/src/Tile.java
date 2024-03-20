@@ -10,5 +10,18 @@ public class Tile {
         this.piece = null;
     }
 
+    //
+    /** public movedTile(Move ) {
+        if(move = this.piece[pos+1]) {
+            this.piece = null;
+        }
+    }**/
+
+
+    public String toString() {
+        this.piece.id =
+
+        return this.piece.id = "a" ;
+    }
 
 }
