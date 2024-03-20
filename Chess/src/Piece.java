@@ -1,12 +1,9 @@
 public abstract class Piece {
-    String color;
-    public Piece(String color) {
+    ChessColor color;
+    public Piece(ChessColor color) {
         this.color = color;
     }
 
-    public boolean color() {
-
-    }
-
-
+    //Move
+    public abstract void move(int x, int y);
 }
