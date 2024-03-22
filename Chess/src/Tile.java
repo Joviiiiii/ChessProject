@@ -19,9 +19,10 @@ public class Tile {
 
 
     public String toString() {
-        this.piece.id =
+        if (this.piece == null)
+            return " ";
 
-        return this.piece.id = "a" ;
+        return this.piece.id;
     }
 
 }
