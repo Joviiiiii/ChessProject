@@ -1,6 +1,6 @@
 public class Queen extends Piece{
-    public Queen(ChessColor color) {
-        super(color);
+    public Queen(String id, ChessColor color) {
+        super(id, color);
     }
 
     @Override

@@ -1,6 +1,6 @@
 public class King extends Piece{
-    public King(ChessColor color) {
-        super(color);
+    public King(String id,ChessColor color) {
+        super(id, color);
     }
 
     @Override

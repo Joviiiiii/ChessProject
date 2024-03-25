@@ -1,6 +1,6 @@
 public class Rook extends Piece{
-    public Rook(ChessColor color) {
-        super(color);
+    public Rook(String id, ChessColor color) {
+        super(id, color);
     }
 
     @Override
