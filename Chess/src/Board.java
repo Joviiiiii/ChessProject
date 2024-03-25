@@ -13,12 +13,12 @@ public class Board {
         this.board[0][6] = new Tile(new Knight(ChessColor.Black));
         this.board[0][7] = new Tile(new Rook(ChessColor.Black));
 
-        for(int col = 0; col>=7; col++ ) {
+        for(int col = 0; col<=7; col++ ) {
             this.board [1] [col] = new Tile(new Pawn("pB", ChessColor.Black));
         }
 
-        for(int row = 2; row>=5; row ++){
-           for(int col = 0; col>=7; col++ ) {
+        for(int row = 2; row<=5; row ++){
+           for(int col = 0; col<=7; col++ ) {
                this.board [row] [col] = new Tile();
            }
         }
@@ -41,7 +41,9 @@ public class Board {
     //display
     public void boardDisplay() {
 
-        System.out.println(board[0][0]);
+        System.out.println("┌╼┬╼┬╼┬╼┬╼┬╼┬╼┬╼┑");
+        System.out.println("");
+
     }
 
     //move a piece
