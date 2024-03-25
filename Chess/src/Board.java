@@ -74,7 +74,7 @@ public class Board {
 
     //Reset
     public void setBoard() {
-
+        boardDisplay();
     }
 
 }
