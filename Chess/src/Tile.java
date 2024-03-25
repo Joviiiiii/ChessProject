@@ -20,7 +20,7 @@ public class Tile {
 
     public String toString() {
         if (this.piece == null)
-            return ". ";
+            return " - ";
 
         return this.piece.symbol;
     }

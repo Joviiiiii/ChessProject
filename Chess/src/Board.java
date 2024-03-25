@@ -43,15 +43,16 @@ public class Board {
 //        this.board[7][7].toString()
 
         //System.out.println("┌╼┬╼┬╼┬╼┬╼┬╼┬╼┬╼┑");
-
+        System.out.println("    A   " + "  B   " + "  C   " + "  D   "
+        + "  E   " + "  F   " + "  G   " + "  H   ");
        // System.out.println("├╼┼╼┼╼┼╼┼╼┼╼┼╼┼╼┫");
-
         for(int row = 0; row<=7; row ++){
-            System.out.print("| ");
+            System.out.print(row+1 + "| ");
             for(int col = 0; col<=7; col++ ) {
                 System.out.print(this.board [row][col].toString() + " | ");
             }
             System.out.println(" ");
+
         }
 
     }
