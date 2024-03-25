@@ -1,6 +1,6 @@
 public class Bishop extends Piece{
-    public Bishop(String id, ChessColor color) {
-        super(id, color);
+    public Bishop(String id, ChessColor color, String symbol) {
+        super(id, color, symbol);
     }
 
     @Override
