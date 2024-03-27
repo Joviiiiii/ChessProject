@@ -40,27 +40,29 @@ public class Board {
 
     //display
     public void boardDisplay() {
-//        this.board[7][7].toString()
+        System.out.println(this.toString());
 
-        //System.out.println("┌╼┬╼┬╼┬╼┬╼┬╼┬╼┬╼┑");
-        System.out.println("    A   " + "  B   " + "  C   " + "  D   "
-        + "  E   " + "  F   " + "  G   " + "  H   ");
-       // System.out.println("├╼┼╼┼╼┼╼┼╼┼╼┼╼┼╼┫");
+    }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("    A   " + "  B   " + "  C   " + "  D   " + "  E   " + "  F   " + "  G   " + "  H   \n");
+
         for(int row = 0; row<=7; row ++){
-            System.out.print(row+1 + "| ");
+            sb.append(row+1 + "| ");
             for(int col = 0; col<=7; col++ ) {
-                System.out.print(Board.board [row][col].toString() + " | ");
+                sb.append(Board.board[row][col].toString()).append(" | ");
             }
-            System.out.println(" ");
-
+            sb.append("\n");
         }
-
+        return sb.toString();
     }
 
     //move a piece
     public void applyMove() {
 
     }
+
 
     //remove piece
     public void removePiece() {
