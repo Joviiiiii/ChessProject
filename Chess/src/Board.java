@@ -72,5 +72,7 @@ public class Board {
         return "w";
     }
 
+    //Possible Helper Function to "Check Path" in front
+    // Obstructed Path
 
 }
