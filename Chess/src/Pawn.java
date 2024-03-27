@@ -6,7 +6,7 @@ public class Pawn extends Piece {
     }
 
     @Override
-    public void move(int x, int y) {
+    public void move(int startX, int startY, int endX, int endY) {
 
     }
 
