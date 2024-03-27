@@ -4,7 +4,7 @@ public class King extends Piece{
     }
 
     @Override
-    public void move(int startX, int startY, int endX, int endY) {
+    public boolean move(int startX, int startY, int endX, int endY) {
 
     }
 }

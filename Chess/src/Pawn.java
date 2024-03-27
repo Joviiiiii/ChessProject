@@ -12,14 +12,6 @@ public class Pawn extends Piece {
         int direction = getColor() == ChessColor.White ? 1 : -1;
         int firstMove = getColor() == ChessColor.White ? 2 : -2;
 
-        // if Pawn start position and end position diagnol reject
-        // if move start and end horizontal deny
-
-        // if moves end > start by 2 deny (except at first)
-
-        // if move is backwards "deny" (?)
-
-        //Allow Move Basic
         if (Board.board[endX][endY] == null) {
             if(startX + direction == endX) {
                 return true;
