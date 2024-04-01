@@ -8,7 +8,7 @@ public class Pawn extends Piece {
     }
 
     @Override
-    public boolean move(int startX, int startY, int endX, int endY) {
+    public boolean canItMove(int startX, int startY, int endX, int endY) {
         int direction = getColor() == ChessColor.White ? 1 : -1;
         int firstMove = getColor() == ChessColor.White ? 2 : -2;
 
