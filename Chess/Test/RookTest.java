@@ -6,8 +6,13 @@ import java.util.Arrays;
 public class RookTest {
 
     @Test
-    public void canItmMoveForRookTrue() {
+    public void canItmMoveForRookFalse() {
 
+        Rook rook1 = new Rook("rook1", ChessColor.Black, "♜");
+
+        Pawn pawn1 = new Pawn ("pawn1", ChessColor.Black, "♟");
+
+        Assertions.assertFalse(rook1.canItMove(0 , 0, 1, 1));
     }
 
     @Test
