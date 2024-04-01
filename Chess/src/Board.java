@@ -59,9 +59,10 @@ public class Board {
     }
 
     //move a piece
-    public void applyMove() {
+    //public void applyMove(Piece canItMove) {
 
-    }
+     //   Board.board[startX][startY] == board[endX][endY];
+   // }
 
 
     //remove piece

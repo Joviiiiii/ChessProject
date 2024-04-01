@@ -8,7 +8,7 @@ public class Pawn extends Piece {
     }
 
     @Override
-    public boolean canItMove(int startX, int startY, int endX, int endY) {
+    public  boolean canItMove(int startX, int startY, int endX, int endY) {
         int direction = getColor() == ChessColor.White ? 1 : -1;
         int firstMove = getColor() == ChessColor.White ? 2 : -2;
 
@@ -23,6 +23,19 @@ public class Pawn extends Piece {
             }
             else {
                 return false;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public boolean unObstructedPath(int startX, int startY, int endX, int endY) {
+        int rowMove = (startX < endX) ? 1 : -1;
+        int colMove = (startY < endY) ? 1 : -1;
+
+        if(canItMove(startX, startY, endX, endY)) {
+            for (int n=0; startY < endY; n = colMove++) {
+                return true;
             }
         }
         return false;
