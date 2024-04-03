@@ -33,13 +33,13 @@ public class Pawn extends Piece {
         int rowMove = (startX < endX) ? 1 : -1;
         int colMove = (startY < endY) ? 1 : -1;
 
-            for (int i =startX; rowMove < endX; i = rowMove++) {
-                for (int j = startY; colMove < endY; j = colMove++) {
-                    if (Board.board[i][j] != null)
-                        return false;
+            for (int i =startX; i <= endX; i +=rowMove) {
+                for (int j = startY; j <= endY; j += colMove) {
+                    if (Board.board[i][j] == null)
+                        return true;
                 }
             }
-        return true;
+        return false;
     }
 
     public boolean UnObstructedPathHorizontal(int startX, int endX) {

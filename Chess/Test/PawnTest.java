@@ -15,6 +15,7 @@ public class PawnTest {
 
     @Test
     public void canItMoveForPawnFalse() {
+
         Pawn pawn1 = new Pawn("pawn1", ChessColor.White, "♙");
 
         Assertions.assertFalse(pawn1.canItMove(2, 2, 7, 2));
@@ -22,6 +23,8 @@ public class PawnTest {
 
     @Test
     public void checkUnobstructedPathTrue() {
+        Board board = new Board();
+        board.newBoard();
 
         Pawn pawn1 = new Pawn("pawn1", ChessColor.Black, "♟");
 
