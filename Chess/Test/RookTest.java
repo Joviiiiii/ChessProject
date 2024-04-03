@@ -16,8 +16,17 @@ public class RookTest {
     }
 
     @Test
-    public void canItMoveForRookFalse() {
+    public void canItMoveForRookTrue() {
+        Board board = new Board();
+        board.newBoard();
 
+        Rook rook1 = new Rook("rook1", ChessColor.Black, "♜");
+
+        Pawn pawn1 = new Pawn ("pawn1", ChessColor.Black, "♟");
+
+        board.applyMove(new Tile (pawn1), 1, 0, 2, 0);
+
+        Assertions.assertTrue(rook1.canItMove(0 , 0, 1, 0));
     }
 
 

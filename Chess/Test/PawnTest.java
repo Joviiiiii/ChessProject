@@ -20,4 +20,25 @@ public class PawnTest {
         Assertions.assertFalse(pawn1.canItMove(2, 2, 7, 2));
     }
 
+    @Test
+    public void checkUnobstructedPathTrue() {
+
+        Pawn pawn1 = new Pawn("pawn1", ChessColor.Black, "♟");
+
+        Assertions.assertTrue(pawn1.unObstructedPath(1, 0, 2, 0));
+    }
+
+    @Test
+    public void checkUnobstructedPathFalse() {
+        Board board = new Board();
+        board.newBoard();
+
+        board.applyMove(new Tile(new Pawn("pawn1", ChessColor.Black, "♟")), 1,0, 5, 0);
+
+        Pawn pw6 = new Pawn("pw", ChessColor.White, "♙");
+
+        Assertions.assertFalse(pw6.unObstructedPath(6,0, 5, 0));
+
+    }
+
 }

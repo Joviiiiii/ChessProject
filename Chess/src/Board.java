@@ -59,13 +59,11 @@ public class Board {
     }
 
     //move a piece
-    //public void applyMove(Piece canItMove) {
+    public void applyMove(Tile piece, int startX, int startY, int endX, int endY) {
+        Board.board[startX][startY] = Board.board[endX][endY];
+        Board.board[endX][endY] = piece;
 
-     //   Board.board[startX][startY] == board[endX][endY];
-   // }
-
-
-    //remove piece
+    }
     public void removePiece() {
 
     }
