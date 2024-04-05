@@ -12,6 +12,4 @@ public abstract class Piece {
     //Move
     public abstract boolean canItMove(int startX, int startY, int endX, int endY);
 
-    public abstract boolean unObstructedPath(int startX, int startY, int endX, int endY);
-
 }

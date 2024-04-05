@@ -1,5 +1,15 @@
 public class Board {
 
+    public Board() {
+        for(int row = 0; row<=7; row ++){
+            for(int col = 0; col<=7; col++ ) {
+                Board.board [row][col] = new Tile();
+            }
+        }
+    }
+
+
+
     public static Tile[][] board = new Tile[8][8];
 
 
@@ -60,13 +70,61 @@ public class Board {
 
     //move a piece
     public void applyMove(Tile piece, int startX, int startY, int endX, int endY) {
-        Board.board[startX][startY] = Board.board[endX][endY];
-        Board.board[endX][endY] = piece;
+        Board.board[startY][startX] = new Tile();
+        Board.board[endY][endX] = piece;
 
     }
     public void removePiece() {
 
     }
+
+    public boolean unObstructedPathDiagnol(int startX, int startY, int endX, int endY) {
+        int rowMove = (startX < endX) ? 1 : -1;
+        int colMove = (startY < endY) ? 1 : -1;
+
+        for (int i = startX; i != endX; i += rowMove) {
+            for (int j = startY; j != endY; j += colMove) {
+                if (Board.board[j][i].piece != null){
+                    return false;
+                }
+            }
+        }
+        if (Board.board[colMove][rowMove].piece != null){
+            return false;
+        }
+        return true;
+    }
+
+    public boolean UnObstructedPathHorizontal(int startX, int endX, int y) {
+        int rowMove = (startX < endX) ? 1 : -1;
+
+        for (int i = startX; i != endX; i += rowMove) {
+           if(Board.board[y][i].piece != null) {
+               System.out.println(Board.board[i][y].piece.symbol);
+               return false;
+           }
+        }
+        if(Board.board[y][startX].piece != null) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean UnObstructedPathVertical(int x, int startY, int endY) {
+        int colMove = (startY < endY) ? 1 : -1;
+
+        for (int j = startY; j != endY; j += colMove) {
+            if (Board.board[j][x].piece != null)
+                return false;
+        }
+        if (Board.board[colMove][x].piece != null) {
+            return false;
+        }
+        return true;
+    }
+
+
+
 
     //Win Check
     public String winner() {

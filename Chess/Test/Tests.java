@@ -29,7 +29,7 @@ public class Tests {
         Board board = new Board();
         board.newBoard();
 
-        board.applyMove(new Tile(new Pawn("pawn1", ChessColor.Black, "♟")), 1,0, 2, 0);
+        board.applyMove(new Tile(new Pawn("pawn1", ChessColor.Black, "♟")), 0,1, 0, 2);
 
         String expected = "    A     B     C     D     E     F     G     H   \n" +
                 "1| ♜ | ♞ | ♝ | ♚ | ♛ | ♝ | ♞ | ♜ | \n" +
@@ -43,4 +43,54 @@ public class Tests {
 
         Assertions.assertEquals(expected, board.toString());
     }
+
+    @Test
+    public void checkUnobstructedPathDiagnolTrue() {
+        Board board = new Board();
+
+        Assertions.assertTrue(board.unObstructedPathDiagnol(1,0,2,1));
+    }
+
+    @Test
+    public void checkUnobstructedPathDiagnolFalse() {
+        Board board = new Board();
+
+        board.applyMove(new Tile(new Pawn("pawn1", ChessColor.Black, "♟")), 1,0, 5, 5);
+
+        Assertions.assertFalse(board.unObstructedPathDiagnol(0,0,7,7));
+    }
+    @Test
+    public void checkUnobstructedPathHorizontalTrue() {
+        Board board = new Board();
+
+        board.boardDisplay();
+        Assertions.assertTrue(board.UnObstructedPathHorizontal(1,2, 0));
+    }
+    @Test
+    public void checkUnobstructedPathHorizontalFalse() {
+        Board board = new Board();
+        board.newBoard();
+
+        board.applyMove(new Tile(new Pawn("pawn1", ChessColor.Black, "♟")), 1,0, 2, 0);
+        Assertions.assertFalse(board.unObstructedPathDiagnol(1,0,2,0));
+    }
+
+
+    @Test
+    public void checkUnobstructedPathVerticalTrue() {
+        Board board = new Board();
+        board.newBoard();
+
+        Assertions.assertTrue(board.UnObstructedPathVertical(0,1,2));
+    }
+
+    @Test
+    public void checkUnobstructedPathVerticalFalse() {
+        Board board = new Board();
+
+        board.applyMove(new Tile(new Pawn("pawn1", ChessColor.Black, "♟")), 1,0, 1, 3);
+        board.boardDisplay();
+        Assertions.assertFalse(board.UnObstructedPathVertical(1,0,6));
+    }
+
 }

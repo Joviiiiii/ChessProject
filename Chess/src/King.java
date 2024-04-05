@@ -8,8 +8,4 @@ public class King extends Piece{
         return false;
     }
 
-    @Override
-    public boolean unObstructedPath(int startX, int startY, int endX, int endY) {
-        return false;
-    }
 }
