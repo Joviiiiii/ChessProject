@@ -104,7 +104,7 @@ public class Board {
                return false;
            }
         }
-        if(Board.board[y][startX].piece != null) {
+        if(Board.board[y][rowMove].piece != null) {
             return false;
         }
         return true;

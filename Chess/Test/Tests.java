@@ -69,7 +69,6 @@ public class Tests {
     @Test
     public void checkUnobstructedPathHorizontalFalse() {
         Board board = new Board();
-        board.newBoard();
 
         board.applyMove(new Tile(new Pawn("pawn1", ChessColor.Black, "♟")), 1,0, 2, 0);
         Assertions.assertFalse(board.unObstructedPathDiagnol(1,0,2,0));
@@ -79,7 +78,6 @@ public class Tests {
     @Test
     public void checkUnobstructedPathVerticalTrue() {
         Board board = new Board();
-        board.newBoard();
 
         Assertions.assertTrue(board.UnObstructedPathVertical(0,1,2));
     }
