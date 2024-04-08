@@ -64,7 +64,7 @@ public class Tests {
         Board board = new Board();
 
         board.boardDisplay();
-        Assertions.assertTrue(board.UnObstructedPathHorizontal(1,2, 0));
+        Assertions.assertTrue(board.unObstructedPathHorizontal(1,2, 0));
     }
     @Test
     public void checkUnobstructedPathHorizontalFalse() {
@@ -72,7 +72,7 @@ public class Tests {
 
         board.applyMove(new Tile(new Pawn("pawn1", ChessColor.Black, "♟")), 3,0, 4, 0);
 
-        Assertions.assertFalse(board.UnObstructedPathHorizontal(2,5,0));
+        Assertions.assertFalse(board.unObstructedPathHorizontal(2,5,0));
     }
 
 
@@ -80,7 +80,7 @@ public class Tests {
     public void checkUnobstructedPathVerticalTrue() {
         Board board = new Board();
 
-        Assertions.assertTrue(board.UnObstructedPathVertical(0,1,2));
+        Assertions.assertTrue(board.unObstructedPathVertical(0,1,2));
     }
 
     @Test
@@ -89,7 +89,7 @@ public class Tests {
 
         board.applyMove(new Tile(new Pawn("pawn1", ChessColor.Black, "♟")), 1,0, 1, 3);
         board.boardDisplay();
-        Assertions.assertFalse(board.UnObstructedPathVertical(1,0,6));
+        Assertions.assertFalse(board.unObstructedPathVertical(1,0,6));
     }
 
 }

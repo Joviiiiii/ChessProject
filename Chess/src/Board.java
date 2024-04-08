@@ -95,7 +95,7 @@ public class Board {
         return true;
     }
 
-    public boolean UnObstructedPathHorizontal(int startX, int endX, int y) {
+    public static boolean unObstructedPathHorizontal(int startX, int endX, int y) {
         int rowMove = (startX < endX) ? 1 : -1;
 
         for (int i = startX; i != endX; i += rowMove) {
@@ -110,7 +110,7 @@ public class Board {
         return true;
     }
 
-    public boolean UnObstructedPathVertical(int x, int startY, int endY) {
+    public boolean unObstructedPathVertical(int x, int startY, int endY) {
         int colMove = (startY < endY) ? 1 : -1;
 
         for (int j = startY; j != endY; j += colMove) {
@@ -123,15 +123,9 @@ public class Board {
         return true;
     }
 
-
-
-
     //Win Check
     public String winner() {
         return "w";
     }
-
-    //Possible Helper Function to "Check Path" in front
-    // Obstructed Path
 
 }

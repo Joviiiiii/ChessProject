@@ -4,8 +4,7 @@ public class King extends Piece{
     }
 
     @Override
-    public boolean canItMove(int startX, int startY, int endX, int endY) {
-        return false;
+    public boolean canItMove(int startX, int startY, int endX, int endY) {return false;
     }
 
 }
