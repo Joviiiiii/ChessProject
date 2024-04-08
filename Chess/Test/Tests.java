@@ -70,8 +70,9 @@ public class Tests {
     public void checkUnobstructedPathHorizontalFalse() {
         Board board = new Board();
 
-        board.applyMove(new Tile(new Pawn("pawn1", ChessColor.Black, "♟")), 1,0, 2, 0);
-        Assertions.assertFalse(board.unObstructedPathDiagnol(1,0,2,0));
+        board.applyMove(new Tile(new Pawn("pawn1", ChessColor.Black, "♟")), 3,0, 4, 0);
+
+        Assertions.assertFalse(board.UnObstructedPathHorizontal(2,5,0));
     }
 
 

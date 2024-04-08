@@ -100,7 +100,7 @@ public class Board {
 
         for (int i = startX; i != endX; i += rowMove) {
            if(Board.board[y][i].piece != null) {
-               System.out.println(Board.board[i][y].piece.symbol);
+               System.out.println(Board.board[y][i].piece.symbol);
                return false;
            }
         }
