@@ -89,10 +89,13 @@ public class Board {
                 }
             }
         }
+       /**
         if (Board.board[colMove][rowMove].piece != null){
             return false;
         }
+        **/
         return true;
+
     }
 
     public static boolean unObstructedPathHorizontal(int startX, int endX, int y) {
