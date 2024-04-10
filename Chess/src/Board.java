@@ -69,7 +69,7 @@ public class Board {
     }
 
     //move a piece
-    public void applyMove(Tile piece, int startX, int startY, int endX, int endY) {
+    public static void applyMove(Tile piece, int startX, int startY, int endX, int endY) {
         Board.board[startY][startX] = new Tile();
         Board.board[endY][endX] = piece;
 
@@ -78,7 +78,7 @@ public class Board {
 
     }
 
-    public boolean unObstructedPathDiagnol(int startX, int startY, int endX, int endY) {
+    public static boolean unObstructedPathDiagnol(int startX, int startY, int endX, int endY) {
         int rowMove = (startX < endX) ? 1 : -1;
         int colMove = (startY < endY) ? 1 : -1;
 
@@ -110,7 +110,7 @@ public class Board {
         return true;
     }
 
-    public boolean unObstructedPathVertical(int x, int startY, int endY) {
+    public static boolean unObstructedPathVertical(int x, int startY, int endY) {
         int colMove = (startY < endY) ? 1 : -1;
 
         for (int j = startY; j != endY; j += colMove) {

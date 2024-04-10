@@ -8,25 +8,29 @@ public class RookTest {
     @Test
     public void canItmMoveForRookFalse() {
 
+        new Board();
+
         Rook rook1 = new Rook("rook1", ChessColor.Black, "♜");
 
         Pawn pawn1 = new Pawn ("pawn1", ChessColor.Black, "♟");
 
-        Assertions.assertFalse(rook1.canItMove(0 , 0, 1, 1));
+        Board.applyMove(new Tile(pawn1),0,0,0,2);
+
+        Assertions.assertFalse(rook1.canItMove(0 , 0, 0, 2));
     }
 
     @Test
     public void canItMoveForRookTrue() {
-        Board board = new Board();
-        board.newBoard();
 
         Rook rook1 = new Rook("rook1", ChessColor.Black, "♜");
 
-        Pawn pawn1 = new Pawn ("pawn1", ChessColor.Black, "♟");
+        Rook rook2 = new Rook("rook2", ChessColor.White, "♖");
 
-        board.applyMove(new Tile (pawn1), 1, 0, 2, 0);
+        new Board();
 
-        Assertions.assertTrue(rook1.canItMove(0 , 0, 1, 0));
+        Board.applyMove(new Tile(rook2), 0,0,0,2);
+
+        Assertions.assertTrue(rook1.canItMove(0 , 0, 0, 2));
     }
 
 

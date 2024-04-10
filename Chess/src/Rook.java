@@ -5,28 +5,33 @@ public class Rook extends Piece {
 
     @Override
     public boolean canItMove(int startX, int startY, int endX, int endY) {
-        //rule check on same horizontal line & vertical line
-        if(Board.board[startY][startX] == Board.board[endY][endX]){
+        Tile tile = Board.board[endY][endX];
+
+        if(tile.piece == null) {
+            return false;
+        }
+
+        if(tile.piece.color == this.color) {
+            return false;
+        }
+
+        if(startX == endX && startY == endY){
             return false;
         }
 
         //rule check on same horizontal line & vertical line
-        if(Board.board[startY][startX]) {
-
+        if(startY == endY) {
+            if(!Board.unObstructedPathHorizontal(startX, endX, endY)) {
+                return false;
+            }
         }
 
-        // is there anything in between
-        if(!Tile.unObstructedPathHorizontal(startX, endX, endY)) {
-            return false;
+        if(startX == endX) {
+            if(!Board.unObstructedPathVertical(endX, startY, endY)) {
+                return false;
+            }
         }
 
-
-        // Last enemy check
-        if() {
-
-        }
-
-        //Add an exception that says if piece ahead is opposite piece + 1
         return true;
     }
 
