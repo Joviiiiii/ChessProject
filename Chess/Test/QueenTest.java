@@ -19,6 +19,9 @@ public class QueenTest {
 
         Pawn pawn = new Pawn("pawn1", ChessColor.White, "♟");
 
+        Board.applyMove(new Tile(pawn), 0, 1, 7, 2);
+
+
         Queen queen = new Queen("Q1", ChessColor.Black, "♛");
 
 
@@ -27,7 +30,7 @@ public class QueenTest {
     }
 
     @Test
-    public void canItMoveFalse() {
+    public void canItMoveFalseWithSameColorPieceAtSpot() {
         new Board();
 
 
@@ -35,8 +38,9 @@ public class QueenTest {
 
         Queen queen = new Queen("Q1", ChessColor.Black, "♛");
 
+        Board.applyMove(new Tile(pawn), 0, 1, 7, 2);
 
-        Assertions.assertTrue(queen.canItMove(5,5, 7, 2));
+        Assertions.assertFalse(queen.canItMove(5,5, 7, 2));
 
     }
 
