@@ -7,11 +7,7 @@ public class Rook extends Piece {
     public boolean canItMove(int startX, int startY, int endX, int endY) {
         Tile tile = Board.board[endY][endX];
 
-        if(tile.piece == null) {
-            return false;
-        }
-
-        if(tile.piece.color == this.color) {
+        if(tile.piece != null && tile.piece.color == this.color) {
             return false;
         }
 

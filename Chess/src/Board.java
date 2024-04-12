@@ -89,12 +89,11 @@ public class Board {
                 }
             }
         }
-       /**
-        if (Board.board[colMove][rowMove].piece != null){
-            return false;
-        }
-        **/
-        return true;
+
+//        if (Board.board[colMove][rowMove].piece != null){
+//            return false;
+//        }
+   return true;
 
     }
 
