@@ -8,13 +8,13 @@ public class RookTest {
     @Test
     public void canItmMoveForRookFalse() {
 
-        new Board();
+        Board board = new Board();
 
         Rook rook1 = new Rook("rook1", ChessColor.Black, "♜");
 
         Pawn pawn1 = new Pawn ("pawn1", ChessColor.Black, "♟");
 
-        Board.applyMove(new Tile(pawn1),0,0,0,2);
+        board.applyMove(0,0,0,2);
 
         Assertions.assertFalse(rook1.canItMove(0 , 0, 0, 2));
     }
@@ -26,9 +26,10 @@ public class RookTest {
 
         Rook rook2 = new Rook("rook2", ChessColor.White, "♖");
 
-        new Board();
+        Board board = new Board();
+        board.setPiece(rook1, 0,0);
+        board.setPiece(rook2, 0, 2);
 
-        Board.applyMove(new Tile(rook2), 0,0,0,2);
 
         Assertions.assertTrue(rook1.canItMove(0 , 0, 0, 2));
     }

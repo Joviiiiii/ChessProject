@@ -10,6 +10,6 @@ public abstract class Piece {
     }
 
     //Move
-    public abstract boolean canItMove(int startX, int startY, int endX, int endY);
+    public abstract boolean canItMove(Board board, Move move);
 
 }

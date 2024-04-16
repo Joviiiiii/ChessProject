@@ -17,5 +17,11 @@ public class Tile {
 
         return this.piece.symbol;
     }
+    public Piece getPiece(){
+        return this.piece;
+    }
+    public void setPiece(Piece piece){
+        this.piece = piece;
+    }
 
 }

@@ -4,18 +4,18 @@ public class Bishop extends Piece{
     }
 
     @Override
-    public boolean canItMove(int startX, int startY, int endX, int endY) {
-        Tile tile = Board.board[endY][endX];
+    public boolean canItMove(Board board, Move move) {
+        Piece piece = board.getPiece(move.startX, move.startY);
 
-       if(tile.piece != null && tile.piece.color == this.color) {
+       if(piece != null && piece.color == this.color) {
             return false;
        }
 
-        if(startX == endX && startY == endY){
+        if(move.startX == move.endX && move.startY == move.endY){
             return false;
         }
 
-        return Board.unObstructedPathDiagnol(startX, startY, endX, endY);
+        return Board.unObstructedPathDiagnol(move.startX, move.startY, move.endX, move.endY);
     }
 
 }
