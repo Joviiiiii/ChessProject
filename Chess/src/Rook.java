@@ -5,7 +5,8 @@ public class Rook extends Piece {
 
     @Override
     public boolean canItMove(Board board, Move move) {
-        Piece piece = board.getPiece(move.startX, move.startY);
+        // piece means target piece (the location we are trying to move to)
+        Piece piece = board.getPiece(move.endX, move.endY);
 
         if(piece != null && piece.color == this.color) {
             return false;
@@ -17,18 +18,22 @@ public class Rook extends Piece {
 
         //rule check on same horizontal line & vertical line
         if(move.startY == move.endY) {
-            if(!Board.unObstructedPathHorizontal(move.startX, move.endX, move.endY)) {
+            if(!board.unObstructedPathHorizontal(move.startX, move.endX, move.endY)) {
                 return false;
             }
         }
 
         if(move.startX == move.endX) {
-            if(!Board.unObstructedPathVertical(move.endX, move.startY, move.endY)) {
+            if(!board.unObstructedPathVertical(move.endX, move.startY, move.endY)) {
                 return false;
             }
         }
 
         return true;
+    }
+
+    public boolean canItMove(Board board, int startX, int startY, int endX, int endY){
+        return canItMove(board, new Move(startX, startY, endX, endY, ChessColor.Black));
     }
 
 }

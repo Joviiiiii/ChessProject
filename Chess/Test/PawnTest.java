@@ -7,18 +7,20 @@ public class PawnTest {
 
     @Test
     public void canItmMoveForPawnTrue() {
+        Board board = new Board();
 
         Pawn pawn1 = new Pawn("pawn1", ChessColor.White, "♙");
 
-        Assertions.assertTrue(pawn1.canItMove(2, 2, 3, 3));
+        Assertions.assertTrue(pawn1.canItMove(board, 2, 2, 3, 3));
     }
 
     @Test
     public void canItMoveForPawnFalse() {
+        Board board = new Board();
 
         Pawn pawn1 = new Pawn("pawn1", ChessColor.White, "♙");
 
-        Assertions.assertFalse(pawn1.canItMove(2, 2, 7, 2));
+        Assertions.assertFalse(pawn1.canItMove(board, 2, 2, 7, 2));
     }
 
     @Test

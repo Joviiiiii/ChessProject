@@ -70,6 +70,9 @@ public class Board {
         this.board[startY][startX] = new Tile();
 
     }
+    public void applyMove(Tile tile, int startX, int startY, int endX, int endY) {
+        applyMove(startX, startY, endX, endY);
+    }
     public void removePiece() {
 
     }

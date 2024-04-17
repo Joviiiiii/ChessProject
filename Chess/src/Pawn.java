@@ -7,12 +7,11 @@ public class Pawn extends Piece {
         super(id, color, symbol);
     }
 
-    @Override
-    public boolean canItMove(int startX, int startY, int endX, int endY) {
+    public boolean canItMove(Board board, int startX, int startY, int endX, int endY) {
         int direction = getColor() == ChessColor.White ? 1 : -1;
         int firstMove = getColor() == ChessColor.White ? 2 : -2;
 
-        if (Board.board[endY][endX] == null) {
+        if (board.board[endY][endX] == null) {
             if (startX + direction == endX) {
                 return true;
             } else if (startX + firstMove == endX &&
@@ -24,6 +23,10 @@ public class Pawn extends Piece {
             }
         }
         return false;
+    }
+
+    public boolean canItMove(Board board, Move move) {
+        return canItMove(board, move.startX, move.startY, move.endX, move.endY);
     }
 
 

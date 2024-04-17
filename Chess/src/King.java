@@ -3,12 +3,12 @@ public class King extends Piece{
         super(id, color, symbol);
     }
 
-    @Override
-    public boolean canItMove(int startX, int startY, int endX, int endY) {
+
+    public boolean canItMove(Board board, int startX, int startY, int endX, int endY) {
         int diffX = endX - startX;
         int diffY = endY - startY;
 
-        Tile tile = Board.board[endY][endX];
+        Tile tile = board.board[endY][endX];
 
         if(tile.piece != null && tile.piece.color == this.color) {
             return false;
@@ -24,5 +24,7 @@ public class King extends Piece{
 
         return false;
     }
-
+    public boolean canItMove(Board board, Move move) {
+        return canItMove(board, move.startX, move.startY, move.endX, move.endY);
+    }
 }
