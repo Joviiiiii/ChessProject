@@ -32,8 +32,8 @@ public class Rook extends Piece {
         return true;
     }
 
-    public boolean canItMove(Board board, int startX, int startY, int endX, int endY){
-        return canItMove(board, new Move(startX, startY, endX, endY, ChessColor.Black));
-    }
+//    public boolean canItMove(Board board, int startX, int startY, int endX, int endY){
+//        return canItMove(board, new Move(startX, startY, endX, endY, ChessColor.White));
+//    }
 
 }

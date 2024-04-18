@@ -17,7 +17,7 @@ public class RookTest {
         board.setPiece(pawn1,0,2);
         board.setPiece(rook1,0,0);
         board.boardDisplay();
-        Assertions.assertFalse(rook1.canItMove(board, 0 , 0, 0, 2));
+        Assertions.assertFalse(rook1.canItMove(board, new Move(0,0,0,2,ChessColor.Black)));
     }
 
     @Test
@@ -35,7 +35,7 @@ public class RookTest {
         board.boardDisplay();
 
 
-        Assertions.assertTrue(rook1.canItMove(board,0 , 0, 0, 2));
+        Assertions.assertTrue(rook1.canItMove(board,new Move(0,0,0,2,ChessColor.Black)));
     }
 
 

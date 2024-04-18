@@ -3,31 +3,33 @@ public class Queen extends Piece{
         super(id, color, symbol);
     }
 
-    public boolean canItMove(Board board, int startX, int startY, int endX, int endY) {
-        Tile tile = board.board[endY][endX];
+    public boolean canItMove(Board board,Move move) {
+        //Tile tile = board.board[endY][endX];
+        Piece piece = board.getPiece(move.endX, move.endY);
 
-        if(tile.piece != null && tile.piece.color == this.color) {
+
+        if(piece != null && piece.color == this.color) {
             return false;
         }
 
-        if(startX == endX && startY == endY){
+        if(move.startX == move.endX && move.startY == move.endY){
             return false;
         }
 
-        if(startY == endY) {
-            if(!board.unObstructedPathHorizontal(startX, endX, endY)) {
+        if(move.startY == move.endY) {
+            if(!board.unObstructedPathHorizontal(move.startX, move.endX, move.endY)) {
                 return false;
             }
         }
 
-        if(startX == endX) {
-            if(!board.unObstructedPathVertical(endX, startY, endY)) {
+        if(move.startX == move.endX) {
+            if(!board.unObstructedPathVertical(move.endX, move.startY, move.endY)) {
                 return false;
             }
         }
 
-        if(startX != endX && startY != endY) {
-            if(!board.unObstructedPathDiagnol(startX, startY, endX, endY)) {
+        if(move.startX != move.endX && move.startY != move.endY) {
+            if(!board.unObstructedPathDiagnol(move.startX, move.startY, move.endX, move.endY)) {
                 return false;
             }
         }
@@ -35,9 +37,9 @@ public class Queen extends Piece{
         return true;
     }
 
-    public boolean canItMove(Board board, Move move) {
-        return canItMove(board, move.startX, move.startY, move.endX, move.endY);
-    }
+//    public boolean canItMove(Board board, Move move) {
+//        return canItMove(board, move.startX, move.startY, move.endX, move.endY);
+//    }
 
 
 }

@@ -9,7 +9,7 @@ public class QueenTest {
         Queen queen = new Queen("Q1", ChessColor.Black, "♛");
 
 
-        Assertions.assertTrue(queen.canItMove(board, 5,5, 7, 2));
+        Assertions.assertTrue(queen.canItMove(board, new Move(5,5,7,2, ChessColor.Black)));
     }
     @Test
     public void canItMoveTrueWithPieceAtSpot() {
@@ -25,7 +25,7 @@ public class QueenTest {
         Queen queen = new Queen("Q1", ChessColor.Black, "♛");
 
 
-        Assertions.assertTrue(queen.canItMove(board, 5,5, 7, 2));
+        Assertions.assertTrue(queen.canItMove(board,new Move(5,5,7,2, ChessColor.Black)));
 
     }
 
@@ -38,9 +38,16 @@ public class QueenTest {
 
         Queen queen = new Queen("Q1", ChessColor.Black, "♛");
 
-        board.applyMove(new Tile(pawn), 0, 1, 7, 2);
+        board.setPiece(pawn, 0,1);
+        board.setPiece(queen, 5,5);
 
-        Assertions.assertFalse(queen.canItMove(board, 5,5, 7, 2));
+        board.boardDisplay();
+
+        board.applyMove(0,1,7,2);
+
+        //board.applyMove(new Tile(pawn), 0, 1, 7, 2);
+
+        Assertions.assertFalse(queen.canItMove(board, new Move(5,5,7,2,ChessColor.Black)));
 
     }
 
