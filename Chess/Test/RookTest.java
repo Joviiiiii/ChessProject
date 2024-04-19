@@ -21,6 +21,21 @@ public class RookTest {
     }
 
     @Test
+    public void canItmMoveForRookFalseObstructedPath() {
+
+        Board board = new Board();
+
+        Rook rook1 = new Rook("rook1", ChessColor.Black, "♜");
+
+        Pawn pawn1 = new Pawn ("pawn1", ChessColor.Black, "♟");
+
+        board.setPiece(pawn1,0,2);
+        board.setPiece(rook1,0,0);
+        board.boardDisplay();
+        Assertions.assertFalse(rook1.canItMove(board, new Move(0,0,0,3,ChessColor.Black)));
+    }
+
+    @Test
     public void canItMoveForRookTrue() {
 
         Board board = new Board();

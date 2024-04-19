@@ -54,9 +54,8 @@ public class Tests {
     @Test
     public void checkUnobstructedPathDiagnolFalse() {
         Board board = new Board();
-
-        board.applyMove(new Tile(new Pawn("pawn1", ChessColor.Black, "♟")), 1,0, 5, 5);
-
+        Pawn pawn = new Pawn("pawn", ChessColor.Black,"♟");
+        board.setPiece(pawn,5,5);
         Assertions.assertFalse(board.unObstructedPathDiagnol(0,0,7,7));
     }
     @Test
@@ -69,8 +68,9 @@ public class Tests {
     @Test
     public void checkUnobstructedPathHorizontalFalse() {
         Board board = new Board();
+        Pawn pawn = new Pawn("pawn", ChessColor.Black,"♟");
+        board.setPiece(pawn,4,0);
 
-        board.applyMove(new Tile(new Pawn("pawn1", ChessColor.Black, "♟")), 3,0, 4, 0);
 
         Assertions.assertFalse(board.unObstructedPathHorizontal(2,5,0));
     }
@@ -86,8 +86,8 @@ public class Tests {
     @Test
     public void checkUnobstructedPathVerticalFalse() {
         Board board = new Board();
-
-        board.applyMove(new Tile(new Pawn("pawn1", ChessColor.Black, "♟")), 1,0, 1, 3);
+        Pawn pawn = new Pawn("pawn", ChessColor.Black, "♟");
+        board.setPiece(pawn, 1,3);
         board.boardDisplay();
         Assertions.assertFalse(board.unObstructedPathVertical(1,0,6));
     }

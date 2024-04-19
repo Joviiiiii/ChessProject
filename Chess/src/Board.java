@@ -127,6 +127,7 @@ public class Board {
         return board[y][x].getPiece();
     }
 
+    // TO DO: fix set piece change x and y to row/col
     public void setPiece(Piece piece,int x, int y){
         board[y][x].setPiece(piece);
     }
