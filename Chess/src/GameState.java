@@ -15,6 +15,7 @@ public class GameState {
         this.board = new Board();
         this.board.newBoard();
         this.players= new Player[]{new Player(ChessColor.White), new Player(ChessColor.Black)};
+        this.activePlayer = players[0];
     }
 
     public Move getMove(){

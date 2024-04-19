@@ -9,7 +9,12 @@ public class PawnTest {
     public void canItmMoveForPawnTrue() {
         Board board = new Board();
 
-        Pawn pawn1 = new Pawn("pawn1", ChessColor.White, "♙");
+        Pawn pawn1 = new Pawn("pawn1", ChessColor.Black, "♙");
+        Pawn pawn2 = new Pawn("pawn1", ChessColor.White, "♙");
+
+        board.setPiece(pawn1, 2,2);
+        board.setPiece(pawn2, 3,3);
+        board.boardDisplay();
 
         Assertions.assertTrue(pawn1.canItMove(board, 2, 2, 3, 3));
     }

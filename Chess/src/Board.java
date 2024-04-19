@@ -81,8 +81,8 @@ public class Board {
         int rowMove = (startX < endX) ? 1 : -1;
         int colMove = (startY < endY) ? 1 : -1;
 
-        for (int i = startX; i != endX; i += rowMove) {
-            for (int j = startY; j != endY; j += colMove) {
+        for (int i = startX + rowMove; i != endX; i += rowMove) {
+            for (int j = startY + colMove; j != endY; j += colMove) {
                 if (this.board[j][i].piece != null){
                     return false;
                 }
@@ -99,7 +99,7 @@ public class Board {
     public boolean unObstructedPathHorizontal(int startX, int endX, int y) {
         int rowMove = (startX < endX) ? 1 : -1;
 
-        for (int i = startX; i != endX; i += rowMove) {
+        for (int i = startX + rowMove; i != endX; i += rowMove) {
            if(this.board[y][i].piece != null) {
                System.out.println(this.board[y][i].piece.symbol);
                return false;
@@ -114,7 +114,7 @@ public class Board {
     public boolean unObstructedPathVertical(int x, int startY, int endY) {
         int colMove = (startY < endY) ? 1 : -1;
 
-        for (int j = startY; j != endY; j += colMove) {
+        for (int j = startY + colMove; j != endY; j += colMove) {
             if (this.board[j][x].piece != null)
                 return false;
         }
@@ -124,11 +124,11 @@ public class Board {
         return true;
     }
     public Piece getPiece(int x, int y){
-        return board[x][y].getPiece();
+        return board[y][x].getPiece();
     }
 
     public void setPiece(Piece piece,int x, int y){
-        board[x][y].setPiece(piece);
+        board[y][x].setPiece(piece);
     }
     
 

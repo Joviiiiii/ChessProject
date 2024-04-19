@@ -12,17 +12,16 @@ public class Pawn extends Piece {
         int firstMove = getColor() == ChessColor.White ? 2 : -2;
 
         if (board.board[endY][endX] == null) {
-            if (startX + direction == endX) {
+            if (startY + direction == endY) {
                 return true;
-            } else if (startX + firstMove == endX &&
-                    (this.color == ChessColor.White && startX == 6) ||
-                    (this.color == ChessColor.Black && startX == 1)) {
+            } else if (startY + firstMove == endY &&
+                    (this.color == ChessColor.White && startY == 6) ||
+                    (this.color == ChessColor.Black && startY == 1)) {
                 return true;
             } else {
                 return false;
             }
-        }
-        return false;
+        }else return (endX == startX + 1 || endX == startX - 1) && (endY == startY + direction);
     }
 
     public boolean canItMove(Board board, Move move) {
