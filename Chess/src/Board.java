@@ -131,7 +131,6 @@ public class Board {
     public void setPiece(Piece piece,int x, int y){
         board[y][x].setPiece(piece);
     }
-    
 
     //Win Check
     public String winner() {

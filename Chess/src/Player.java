@@ -43,6 +43,7 @@ public class Player {
 //            Move move = new Move(startX, startY, endX, endY, this.color);
 
         }
+
         return getMove(input);
     }
 

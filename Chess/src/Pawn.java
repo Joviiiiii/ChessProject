@@ -11,6 +11,7 @@ public class Pawn extends Piece {
         int direction = getColor() == ChessColor.White ? -1 : 1;
         int firstMove = getColor() == ChessColor.White ? -2 : 2;
 
+
         if (board.board[endY][endX].piece == null) {
             if (startY + direction == endY &&  startX == endX) {
                 return true;
