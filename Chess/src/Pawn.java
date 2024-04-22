@@ -8,11 +8,11 @@ public class Pawn extends Piece {
     }
 
     public boolean canItMove(Board board, int startX, int startY, int endX, int endY) {
-        int direction = getColor() == ChessColor.White ? 1 : -1;
-        int firstMove = getColor() == ChessColor.White ? 2 : -2;
+        int direction = getColor() == ChessColor.White ? -1 : 1;
+        int firstMove = getColor() == ChessColor.White ? -2 : 2;
 
-        if (board.board[endY][endX] == null) {
-            if (startY + direction == endY) {
+        if (board.board[endY][endX].piece == null) {
+            if (startY + direction == endY &&  startX == endX) {
                 return true;
             } else if (startY + firstMove == endY &&
                     (this.color == ChessColor.White && startY == 6) ||
@@ -21,7 +21,9 @@ public class Pawn extends Piece {
             } else {
                 return false;
             }
-        }else return (endX == startX + 1 || endX == startX - 1) && (endY == startY + direction);
+        } else {
+            return (endX == startX + 1 || endX == startX - 1) && (endY == startY + direction) && board.getPiece(endX, endY).color != this.color;
+        }
     }
 
     public boolean canItMove(Board board, Move move) {
