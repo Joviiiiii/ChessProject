@@ -29,6 +29,10 @@ public class Rook extends Piece {
             }
         }
 
+//        if(board.unObstructedPathDiagnol(move.startX, move.startY, move.endX, move.endY)) {
+//            return false;
+//        }
+
         return true;
     }
 

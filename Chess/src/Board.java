@@ -105,9 +105,9 @@ public class Board {
                return false;
            }
         }
-        if(this.board[y][rowMove].piece != null) {
-            return false;
-        }
+//        if(this.board[y][rowMove].piece != null) {
+//            return false;
+//        }
         return true;
     }
 
@@ -118,9 +118,9 @@ public class Board {
             if (this.board[j][x].piece != null)
                 return false;
         }
-        if (this.board[colMove][x].piece != null) {
-            return false;
-        }
+//        if (this.board[colMove][x].piece != null) {
+//            return false;
+//        }
         return true;
     }
     public Piece getPiece(int x, int y){

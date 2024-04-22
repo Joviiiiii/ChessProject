@@ -14,13 +14,17 @@ public class BishopTest {
     public void canItMoveTrueWithPieceAtSpot() {
         Board  board = new Board();
 
-        Bishop bishop = new Bishop("Bishop1", ChessColor.Black, "♝");
+        Bishop bishop = new Bishop("Bishop1", ChessColor.White, "♗");
 
-        Pawn pawn = new Pawn("pawn1", ChessColor.White, "♟");
+        Pawn pawn = new Pawn("pawn1", ChessColor.Black, "♟");
 
-        board.applyMove( 0, 1, 7, 2);
+        board.setPiece(bishop, 2, 7);
 
-        Assertions.assertTrue(bishop.canItMove(board,new Move(5,5,7,2, ChessColor.White)));
+        board.setPiece(pawn, 7, 2);
+
+        board.boardDisplay();
+
+        Assertions.assertTrue(bishop.canItMove(board,new Move(2,7,6,3, ChessColor.White)));
 
     }
 

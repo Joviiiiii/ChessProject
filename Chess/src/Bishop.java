@@ -15,6 +15,7 @@ public class Bishop extends Piece{
             return false;
         }
 
+
         return board.unObstructedPathDiagnol(move.startX, move.startY, move.endX, move.endY);
     }
 
