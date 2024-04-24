@@ -7,7 +7,7 @@ public class QueenTest {
         Board board = new Board();
 
         Queen queen = new Queen("Q1", ChessColor.Black, "♛");
-
+        board.setPiece(queen,5,5);
 
         Assertions.assertTrue(queen.canItMove(board, new Move(5,5,7,2, ChessColor.Black)));
     }
@@ -19,11 +19,12 @@ public class QueenTest {
 
         Pawn pawn = new Pawn("pawn1", ChessColor.White, "♟");
 
-        board.applyMove(new Tile(pawn), 0, 1, 7, 2);
+        //board.applyMove(new Tile(pawn), 0, 1, 7, 2);
 
 
         Queen queen = new Queen("Q1", ChessColor.Black, "♛");
-
+        board.setPiece(pawn,7,2);
+        board.setPiece(queen,5,5);
 
         Assertions.assertTrue(queen.canItMove(board,new Move(5,5,7,2, ChessColor.Black)));
 
@@ -38,12 +39,12 @@ public class QueenTest {
 
         Queen queen = new Queen("Q1", ChessColor.Black, "♛");
 
-        board.setPiece(pawn, 0,1);
+        board.setPiece(pawn, 7,2);
         board.setPiece(queen, 5,5);
 
         board.boardDisplay();
 
-        board.applyMove(0,1,7,2);
+       // board.applyMove(0,1,7,2);
 
         //board.applyMove(new Tile(pawn), 0, 1, 7, 2);
 

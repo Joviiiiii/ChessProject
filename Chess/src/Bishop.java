@@ -6,8 +6,9 @@ public class Bishop extends Piece{
     @Override
     public boolean canItMove(Board board, Move move) {
         Piece piece = board.getPiece(move.startX, move.startY);
+        Piece piece1 = board.getPiece(move.endX, move.endY);
 
-       if(piece != null && piece.color == this.color) {
+       if(piece1 != null && piece1.color == this.color) {
             return false;
        }
 

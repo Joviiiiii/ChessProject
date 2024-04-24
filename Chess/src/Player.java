@@ -20,7 +20,7 @@ public class Player {
         return new Move(startXInt, startYInt, endXInt, endYInt, this.color);
 
     }
-    public Move getInput(){
+    public Move getInput(Board board){
         int startX;
         int startY;
         int endX;
@@ -28,7 +28,7 @@ public class Player {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter the piece you want to move and where to move it. eg: a1 b2");
         String input = scanner.nextLine();
-        while (!inputIsValid(input)) {
+        while (!inputIsValid(input, board)) {
             System.out.println("Input was not valid");
             input = scanner.nextLine();
 
@@ -47,7 +47,7 @@ public class Player {
         return getMove(input);
     }
 
-    public boolean inputIsValid(String input){
+    public boolean inputIsValid(String input, Board board){
         if(input.length() != 5){
             return false;
         }
@@ -68,7 +68,14 @@ public class Player {
             return false;
         }
 
-        return inputMap.containsValue(startYInt - 1) && inputMap.containsValue(endYInt - 1);
+        if (inputMap.containsValue(startYInt - 1) && inputMap.containsValue(endYInt - 1)){
+            int startXInt = inputMap.get(startX);
+            if (board.getPiece(startXInt,startYInt) != null){
+                return true;
+            }
+
+        }
+        return false;
     }
 
 }

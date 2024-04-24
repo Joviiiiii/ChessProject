@@ -7,6 +7,7 @@ public class KingTest {
         Board board =new Board();
 
         King king = new King("K1", ChessColor.Black, "♔");
+        board.setPiece(king,5,5);
 
 
         Assertions.assertTrue(king.canItMove(board, new Move(5,5,5,6,ChessColor.Black)));
@@ -16,8 +17,8 @@ public class KingTest {
     public void canItMoveFalseEndXEqualsTwo(){
         Board board = new Board();
 
-       King king = new King("K1", ChessColor.Black, "♔");
-
+        King king = new King("K1", ChessColor.Black, "♔");
+        board.setPiece(king, 4,5);
         Assertions.assertFalse(king.canItMove(board, 4,5, 7, 5));
     }
     @Test
@@ -28,8 +29,11 @@ public class KingTest {
         Pawn pawn = new Pawn("pawn1", ChessColor.White, "♟");
 
         King king = new King("K1", ChessColor.Black, "♔");
+        board.setPiece(king, 7,1);
+        board.setPiece(pawn,7,2);
 
-        board.applyMove(0, 1, 7, 2);
+
+        //board.applyMove(0, 1, 7, 2);
 
 
         Assertions.assertTrue(king.canItMove(board, 7,1, 7, 2));
@@ -42,7 +46,7 @@ public class KingTest {
 
 
         King king = new King("K1", ChessColor.Black, "♔");
-
+        board.setPiece(king,5,1);
 
         Assertions.assertTrue(king.canItMove(board,5 ,1, 6, 1));
 

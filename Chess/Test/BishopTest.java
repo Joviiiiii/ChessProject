@@ -8,6 +8,8 @@ public class BishopTest {
 
         Bishop bishop = new Bishop("Bishop1", ChessColor.Black, "♝");
 
+        board.setPiece(bishop,5,5 );
+
         Assertions.assertTrue(bishop.canItMove(board, new Move(5,5, 7, 2, ChessColor.Black)));
     }
     @Test
@@ -24,7 +26,7 @@ public class BishopTest {
 
         board.boardDisplay();
 
-        Assertions.assertTrue(bishop.canItMove(board,new Move(2,7,6,3, ChessColor.White)));
+        Assertions.assertTrue(bishop.canItMove(board,new Move(2,7,7,2, ChessColor.White)));
 
     }
 
@@ -37,7 +39,7 @@ public class BishopTest {
         Pawn pawn = new Pawn("pawn1", ChessColor.Black, "♟");
         board.setPiece(bishop,0,1);
         board.setPiece(pawn, 1,2);
-        //board.applyMove(0, 1, 2, 2);
+
 
 
         board.boardDisplay();

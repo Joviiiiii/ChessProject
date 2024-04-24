@@ -1,8 +1,13 @@
 public class Knight extends Piece{
+
+    public static String whiteSymbol = "♞";
+    public static String blackSymbol = "♘";
     public Knight(String id, ChessColor color, String symbol) {
         super(id, color, symbol);
     }
-
+    public Knight(String id, ChessColor color) {
+        super(id, color, color == ChessColor.White ? whiteSymbol : blackSymbol);
+    }
 
     public boolean canItMove(Board board, int startX, int startY, int endX, int endY) {
         int diffX = endX - startX;

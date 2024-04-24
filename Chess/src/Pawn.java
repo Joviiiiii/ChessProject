@@ -1,10 +1,16 @@
 import static java.awt.Color.getColor;
+import static java.awt.Color.white;
 
 public class Pawn extends Piece {
 
+    public static String whiteSymbol = "♟";
+    public static String blackSymbol = "♙";
 
     public Pawn(String id, ChessColor color, String symbol) {
         super(id, color, symbol);
+    }
+    public Pawn(String id, ChessColor color) {
+        super(id, color,color == ChessColor.White ? whiteSymbol : blackSymbol);
     }
 
     public boolean canItMove(Board board, int startX, int startY, int endX, int endY) {

@@ -1,6 +1,11 @@
 public class King extends Piece{
+    public static String whiteSymbol = "♚";
+    public static String blackSymbol = "♔";
     public King(String id,ChessColor color, String symbol) {
         super(id, color, symbol);
+    }
+    public King(String id, ChessColor color) {
+        super(id, color, color == ChessColor.White ? whiteSymbol : blackSymbol);
     }
 
 

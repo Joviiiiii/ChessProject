@@ -6,7 +6,7 @@ public class KnightTest {
         Board board = new Board();
 
         Knight knight = new Knight("KB",ChessColor.Black, "♞");
-;
+;       board.setPiece(knight,5,5);
 
         Assertions.assertTrue(knight.canItMove(board, 5,5, 6, 7));
     }
@@ -16,7 +16,7 @@ public class KnightTest {
         Board board = new Board();
 
         Knight knight = new Knight("KB",ChessColor.Black, "♞");
-
+        board.setPiece(knight,5,5);
         Assertions.assertFalse(knight.canItMove(board, 5,5, 7, 7));
     }
     @Test
@@ -27,8 +27,9 @@ public class KnightTest {
         Pawn pawn = new Pawn("pawn1", ChessColor.White, "♟");
 
         Knight knight = new Knight("KB",ChessColor.Black, "♞");
-
-        board.applyMove(new Tile(pawn), 0, 1, 6, 7);
+        board.setPiece(knight,5,5);
+        board.setPiece(pawn,6,7);
+        //board.applyMove(new Tile(pawn), 0, 1, 6, 7);
 
 
         Assertions.assertTrue(knight.canItMove(board, 5,5, 6, 7));
@@ -42,7 +43,7 @@ public class KnightTest {
 
         Knight knight = new Knight("KB",ChessColor.Black, "♞");
 
-
+        board.setPiece(knight,5,5);
         Assertions.assertTrue(knight.canItMove(board, 5,5, 3, 4));
 
     }

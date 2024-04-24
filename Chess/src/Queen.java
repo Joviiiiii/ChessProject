@@ -1,6 +1,11 @@
 public class Queen extends Piece{
+    public static String whiteSymbol = "♛";
+    public static String blackSymbol = "♕";
     public Queen(String id, ChessColor color, String symbol) {
         super(id, color, symbol);
+    }
+    public Queen(String id, ChessColor color) {
+        super(id, color,color == ChessColor.White ? whiteSymbol : blackSymbol);
     }
 
     public boolean canItMove(Board board,Move move) {

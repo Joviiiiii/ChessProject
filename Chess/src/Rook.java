@@ -1,7 +1,12 @@
 public class Rook extends Piece {
-    public Rook(String id, ChessColor color, String symbol) {
-        super(id, color, symbol);
+
+    public static String whiteSymbol = "♜";
+    public static String blackSymbol = "♖";
+    public Rook(String id, ChessColor color, String symbol){super(id,color,symbol);}
+    public Rook(String id, ChessColor color) {
+        super(id, color, color == ChessColor.White ? whiteSymbol : blackSymbol);
     }
+
 
     @Override
     public boolean canItMove(Board board, Move move) {
