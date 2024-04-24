@@ -15,12 +15,18 @@ public class Main {
 
             while ((!game.board.getPiece(move.startX, move.startY).canItMove(game.board, move)) || game.activePlayer.color != game.board.getPiece(move.startX, move.startY).color
             ){
+
                 System.out.println("Invalid move");
                 move = game.activePlayer.getInput(game.board);
             }
             game.board.applyMove(move.startX, move.startY, move.endX, move.endY);
             game.nextPlayer();
 
+
+        }
+        if(game.activePlayer.getInput(game.board).equals("quit")){
+            System.out.println(game.activePlayer.color + " loses");
+            gameOver = true;
         }
     }
 
