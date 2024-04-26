@@ -22,10 +22,22 @@ public class Main {
             game.board.applyMove(move.startX, move.startY, move.endX, move.endY);
             game.nextPlayer();
 
+//            if(game.board.checkmate(ChessColor.Black) == true){
+//                System.out.println("Checkmate: White wins");
+//                gameOver = true;
+//            }
+//
+//            if (game.board.checkmate(ChessColor.White) == true){
+//                System.out.println("Checkmate: Black wins");
+//                gameOver = true;
+//            }
+
 
 
 
         }
+
+
     }
 
 }
