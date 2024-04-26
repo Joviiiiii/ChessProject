@@ -20,6 +20,9 @@ public class Bishop extends Piece{
             return false;
         }
 
+        if(Math.abs(move.endX-move.startX) != Math.abs(move.endY - move.startY)) {
+            return false;
+        }
 
         return board.unObstructedPathDiagnol(move.startX, move.startY, move.endX, move.endY);
     }

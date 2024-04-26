@@ -29,6 +29,10 @@ public class Queen extends Piece{
             return board.unObstructedPathVertical(move.endX, move.startY, move.endY);
         }
 
+        if(Math.abs(move.endX-move.startX) != Math.abs(move.endY - move.startY)) {
+            return false;
+        }
+
         if(move.startX != move.endX && move.startY != move.endY) {
             return board.unObstructedPathDiagnol(move.startX, move.startY, move.endX, move.endY);
         }

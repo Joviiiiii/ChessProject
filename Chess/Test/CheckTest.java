@@ -20,7 +20,7 @@ public class CheckTest {
         Queen queen = new Queen("RB", ChessColor.Black);
 
         board.setPiece(king, 5, 5);
-        board.setPiece(queen,3,3);
+        board.setPiece(queen,3,4);
         board.boardDisplay();
         Assertions.assertFalse(board.check(ChessColor.White));
 

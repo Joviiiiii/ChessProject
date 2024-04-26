@@ -158,6 +158,28 @@ public class Board {
             return false;
     }
 
+    public boolean checkmate(ChessColor color) {
+        int kingX = 0;
+        int kingY = 0;
+
+
+        for( int i= 0; i<8; i++){
+            for (int j = 0; j<8; j++){
+                if (board[i][j].piece instanceof King && color == board[i][j].piece.color){
+                    kingY = i;
+                    kingX = j;
+
+                }
+                if(check(color)) {
+                    if(board[i][j].piece.canItMove(this, new Move(j, i, kingX, kingY, color))) {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
     //Win Check
     public String winner() {
         return "w";
