@@ -132,6 +132,32 @@ public class Board {
         board[y][x].setPiece(piece);
     }
 
+    public boolean check(ChessColor color){
+        int kingX = 0;
+        int kingY = 0;
+
+
+        for( int i= 0; i<8; i++){
+            for (int j = 0; j<8; j++){
+                if (board[i][j].piece instanceof King && color == board[i][j].piece.color){
+                    kingY = i;
+                    kingX = j;
+
+                }
+            }
+
+        }
+        for (int i = 0; i < 8; i++){
+            for (int j = 0; j < 8; j++) {
+                Piece piecePos = board[i][j].piece;
+                if (piecePos != null && piecePos.color != color && piecePos.canItMove(this, new Move(j, i, kingX, kingY, color))) {
+                    return true;
+                }
+            }
+        }
+            return false;
+    }
+
     //Win Check
     public String winner() {
         return "w";

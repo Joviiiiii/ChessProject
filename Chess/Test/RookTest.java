@@ -52,6 +52,16 @@ public class RookTest {
 
         Assertions.assertTrue(rook1.canItMove(board,new Move(0,0,0,2,ChessColor.Black)));
     }
+    @Test
+    public void rookCanMoveToKing() {
+        Board board = new Board();
+        King king = new King("KingW", ChessColor.White);
+        Rook rook = new Rook("RB", ChessColor.Black);
 
+        board.setPiece(king, 5, 5);
+        board.setPiece(rook, 3, 4);
+        board.boardDisplay();
+        Assertions.assertFalse(rook.canItMove(board, new Move(3, 4, 5, 5, ChessColor.Black)));
+    }
 
 }
