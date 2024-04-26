@@ -22,24 +22,18 @@ public class Queen extends Piece{
         }
 
         if(move.startY == move.endY) {
-            if(!board.unObstructedPathHorizontal(move.startX, move.endX, move.endY)) {
-                return false;
-            }
+            return board.unObstructedPathHorizontal(move.startX, move.endX, move.endY);
         }
 
         if(move.startX == move.endX) {
-            if(!board.unObstructedPathVertical(move.endX, move.startY, move.endY)) {
-                return false;
-            }
+            return board.unObstructedPathVertical(move.endX, move.startY, move.endY);
         }
 
         if(move.startX != move.endX && move.startY != move.endY) {
-            if(!board.unObstructedPathDiagnol(move.startX, move.startY, move.endX, move.endY)) {
-                return false;
-            }
+            return board.unObstructedPathDiagnol(move.startX, move.startY, move.endX, move.endY);
         }
 
-        return true;
+        return false;
     }
 
 //    public boolean canItMove(Board board, Move move) {

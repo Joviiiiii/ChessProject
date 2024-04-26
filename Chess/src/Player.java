@@ -48,9 +48,11 @@ public class Player {
     }
 
     public boolean inputIsValid(String input, Board board){
+
         if(input.length() != 5){
             return false;
         }
+
         char startX = input.charAt(0);
         char startY = input.charAt(1);
         char endX = input.charAt(3);
@@ -68,6 +70,7 @@ public class Player {
             return false;
         }
 
+
         if (inputMap.containsValue(startYInt - 1) && inputMap.containsValue(endYInt - 1)){
             int startXInt = inputMap.get(startX);
             if (board.getPiece(startXInt,startYInt) != null){
@@ -75,7 +78,9 @@ public class Player {
             }
 
         }
+
         return false;
     }
+
 
 }
