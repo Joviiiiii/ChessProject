@@ -6,11 +6,11 @@ public class BishopTest {
     public void canItMoveTrue() {
         Board board = new Board();
 
-        Bishop bishop = new Bishop("Bishop1", ChessColor.Black, "♝");
+        Bishop bishop = new Bishop("Bishop1", ChessColor.White, "♗");
 
-        board.setPiece(bishop,5,5 );
+        board.setPiece(bishop,2,7 );
 
-        Assertions.assertTrue(bishop.canItMove(board, new Move(5,5, 7, 2, ChessColor.Black)));
+        Assertions.assertTrue(bishop.canItMove(board, new Move(2,7, 7, 2, ChessColor.Black)));
     }
     @Test
     public void canItMoveTrueWithPieceAtSpot() {

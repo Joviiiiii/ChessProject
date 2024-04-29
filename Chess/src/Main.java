@@ -22,6 +22,15 @@ public class Main {
             game.board.applyMove(move.startX, move.startY, move.endX, move.endY);
             game.nextPlayer();
 
+            if(game.board.check((game.activePlayer.color))) {
+                System.out.println(game.activePlayer.color + " is in check");
+            }
+//                if(game.board.checkmate(game.activePlayer.color)) {
+//                    gameOver = true;
+//                    System.out.println("Checkmate " + game.activePlayer.color + " loses");
+//                }
+
+//            }
 
 
 

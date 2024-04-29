@@ -73,7 +73,7 @@ public class Player {
 
         if (inputMap.containsValue(startYInt - 1) && inputMap.containsValue(endYInt - 1)){
             int startXInt = inputMap.get(startX);
-            if (board.getPiece(startXInt,startYInt) != null){
+            if (board.getPiece(startXInt,startYInt-1) != null){
                 return true;
             }
 
