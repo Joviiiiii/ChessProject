@@ -180,9 +180,5 @@ public class Board {
         return true;
     }
 
-    //Win Check
-    public String winner() {
-        return "w";
-    }
 
 }

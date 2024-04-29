@@ -4,7 +4,11 @@ public class Main {
         boolean gameOver = false;
         while(!gameOver){
             game.board.boardDisplay();
-            System.out.println("It is this player's turn: " + game.activePlayer.color);
+            System.out.println("It is: " + game.activePlayer.color + "'s" +  " turn " );
+
+            if(game.board.check((game.activePlayer.color))) {
+                System.out.println(game.activePlayer.color + " is in check");
+            }
             Move move = game.activePlayer.getInput(game.board);
 
 //            while(game.board.getPiece(move.startX, move.startY) == null ) {
@@ -21,17 +25,6 @@ public class Main {
             }
             game.board.applyMove(move.startX, move.startY, move.endX, move.endY);
             game.nextPlayer();
-
-            if(game.board.check((game.activePlayer.color))) {
-                System.out.println(game.activePlayer.color + " is in check");
-            }
-//                if(game.board.checkmate(game.activePlayer.color)) {
-//                    gameOver = true;
-//                    System.out.println("Checkmate " + game.activePlayer.color + " loses");
-//                }
-
-//            }
-
 
 
         }

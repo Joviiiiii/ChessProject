@@ -37,6 +37,7 @@ public class Pawn extends Piece {
     }
 
 
+
     private ChessColor getColor() {
         return color;
     }
