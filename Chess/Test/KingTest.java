@@ -51,4 +51,27 @@ public class KingTest {
         Assertions.assertTrue(king.canItMove(board,5 ,1, 6, 1));
 
     }
+    @Test
+    public void canItMoveForwardDiagnolTrue() {
+        Board board = new Board();
+
+
+        King king = new King("K1", ChessColor.Black, "♔");
+        board.setPiece(king,5,1);
+
+        Assertions.assertTrue(king.canItMove(board,5 ,1, 6, 2));
+
+    }
+
+    @Test
+    public void canItMoveBackwardsDiagnolTrue() {
+        Board board = new Board();
+
+
+        King king = new King("K1", ChessColor.Black, "♔");
+        board.setPiece(king,6,2);
+
+        Assertions.assertTrue(king.canItMove(board,6 ,2, 5, 1));
+
+    }
 }
