@@ -45,6 +45,7 @@ public class KnightTest {
 
         board.setPiece(knight,5,5);
         Assertions.assertTrue(knight.canItMove(board, 5,5, 3, 4));
+        e
 
     }
     
