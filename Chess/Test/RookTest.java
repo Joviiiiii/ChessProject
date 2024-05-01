@@ -21,7 +21,7 @@ public class RookTest {
     }
 
     @Test
-    public void canItmMoveForRookFalseObstructedPath() {
+    public void canItMoveForRookFalseObstructedPath() {
 
         Board board = new Board();
 
@@ -62,6 +62,43 @@ public class RookTest {
         board.setPiece(rook, 3, 4);
         board.boardDisplay();
         Assertions.assertFalse(rook.canItMove(board, new Move(3, 4, 5, 5, ChessColor.Black)));
+    }
+
+    @Test
+    public void canItMoveHorizontalTrue() {
+        Board board = new Board();
+
+        Rook rook1 = new Rook("rook1", ChessColor.Black, "♜");
+
+        board.setPiece(rook1, 0,0);
+
+        Assertions.assertTrue(rook1.canItMove(board,new Move(0,0,5,0,ChessColor.Black)));
+
+    }
+    @Test
+    public void canItMoveHorizontalFalse() {
+        Board board = new Board();
+
+        Rook rook1 = new Rook("rook1", ChessColor.Black, "♜");
+        Pawn pawn = new Pawn("P1", ChessColor.Black, "♟" );
+
+        board.setPiece(pawn, 5, 0);
+
+        board.setPiece(rook1, 0,0);
+
+        Assertions.assertFalse(rook1.canItMove(board,new Move(0,0,5,0,ChessColor.Black)));
+
+    }
+
+    @Test
+    public void canItMoveDiagnolFalse() {
+            Board board = new Board();
+
+            Rook rook1 = new Rook("rook1", ChessColor.Black, "♜");
+
+            board.setPiece(rook1, 0,0);
+
+            Assertions.assertFalse(rook1.canItMove(board,new Move(0,0,2,2,ChessColor.Black)));
     }
 
 }
