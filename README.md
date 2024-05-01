@@ -1,6 +1,6 @@
 Chess Project
 
-This is a Chess Game made in java:
+This is a Chess Game made in java.
     This Chess Game is a Two Player Game, following the basic rules of Chess.
     One Player will be White & the Other Black.
     White being the first player, Black the second.
