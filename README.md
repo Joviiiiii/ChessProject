@@ -1,4 +1,4 @@
-Chess Project
+Chess Project - Jovi & Peyton
 
 This is a Chess Game made in java.
     This Chess Game is a Two Player Game, following the basic rules of Chess.
