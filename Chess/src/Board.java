@@ -9,7 +9,6 @@ public class Board {
         }
     }
 
-
     public void newBoard() {
         this.board[0][0] = new Tile(new Rook("RB", ChessColor.Black));
         this.board[0][1] = new Tile(new Knight("KB", ChessColor.Black));
@@ -42,13 +41,11 @@ public class Board {
         this.board[7][5] = new Tile(new Bishop("BW2", ChessColor.White));
         this.board[7][6] = new Tile(new Knight("KW2", ChessColor.White));
         this.board[7][7] = new Tile(new Rook("RW2", ChessColor.White));
-
     }
 
     //display
     public void boardDisplay() {
         System.out.println(this.toString());
-
     }
 
     public String toString() {
@@ -65,15 +62,13 @@ public class Board {
         return sb.toString();
     }
 
-    //move a piece
     public void applyMove(int startX, int startY, int endX, int endY) {
         this.board[endY][endX] = this.board[startY][startX];
         this.board[startY][startX] = new Tile();
-
     }
+
     public void applyMove(Move move) {
         applyMove(move.startX, move.startY, move.endX, move.endY);
-
     }
 
     public void applyMove(Tile tile, int startX, int startY, int endX, int endY) {
@@ -81,7 +76,6 @@ public class Board {
     }
 
     public void removePiece() {
-
     }
 
     public boolean unObstructedPathDiagnol(int startX, int startY, int endX, int endY) {
@@ -97,13 +91,6 @@ public class Board {
             }
         }
         return true;
-
-
-//        if (this.board[colMove][rowMove].piece != null){
-//            return false;
-//        }
-
-
     }
 
     public boolean unObstructedPathHorizontal(int startX, int endX, int y) {
@@ -115,9 +102,6 @@ public class Board {
                 return false;
             }
         }
-//        if(this.board[y][rowMove].piece != null) {
-//            return false;
-//        }
         return true;
     }
 
@@ -128,9 +112,6 @@ public class Board {
             if (this.board[j][x].piece != null)
                 return false;
         }
-//        if (this.board[colMove][x].piece != null) {
-//            return false;
-//        }
         return true;
     }
 
@@ -138,7 +119,6 @@ public class Board {
         return board[y][x].getPiece();
     }
 
-    // TO DO: fix set piece change x and y to row/col
     public void setPiece(Piece piece, int x, int y) {
         board[y][x].setPiece(piece);
     }
@@ -147,16 +127,13 @@ public class Board {
         int kingX = 0;
         int kingY = 0;
 
-
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 if (board[i][j].piece instanceof King && color == board[i][j].piece.color) {
                     kingY = i;
                     kingX = j;
-
                 }
             }
-
         }
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
@@ -174,7 +151,6 @@ public class Board {
         int kingX = 0;
         int kingY = 0;
 
-
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 if (board[i][j].piece instanceof King && color == board[i][j].piece.color) {
@@ -188,13 +164,13 @@ public class Board {
                 }
             }
         }
-
         return false;
     }
-    public boolean doesMoveResultInCheck(Move move,ChessColor color){
+
+    public boolean doesMoveResultInCheck(Move move, ChessColor color) {
         applyMove(move);
         boolean kingInCheck = check(color);
-        applyMove(move.endX,move.endY, move.startX, move.startY);
+        applyMove(move.endX, move.endY, move.startX, move.startY);
         return kingInCheck;
     }
 
