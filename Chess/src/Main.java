@@ -43,8 +43,6 @@ public class Main {
             game.nextPlayer();
 
 
-
-
         }
 
 
