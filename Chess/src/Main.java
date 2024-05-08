@@ -27,7 +27,7 @@ public class Main {
            ){
 
                 System.out.println("Invalid move");
-               a move = game.activePlayer.getInput(game.board);
+               move = game.activePlayer.getInput(game.board);
 
 //                if(game.board.checkmate(ChessColor.Black) == true){
 //                    System.out.println("Checkmate: White wins");
