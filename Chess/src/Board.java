@@ -193,9 +193,9 @@ public class Board {
     }
     public boolean doesMoveResultInCheck(Move move,ChessColor color){
         applyMove(move);
-       boolean kingInCheck = check(color);
-       applyMove(move.endX,move.endY, move.startX, move.startY);
-       return kingInCheck;
+        boolean kingInCheck = check(color);
+        applyMove(move.endX,move.endY, move.startX, move.startY);
+        return kingInCheck;
     }
 
 
