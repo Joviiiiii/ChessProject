@@ -7,8 +7,11 @@ public class Main {
             System.out.println("It is: " + game.activePlayer.color + "'s" +  " turn " );
 
             if(game.board.check((game.activePlayer.color))) {
-                System.out.println(game.activePlayer.color + " is in check");
+                {
+                    System.out.println(game.activePlayer.color + " is in check");
+                }
             }
+
             Move move = game.activePlayer.getInput(game.board);
 
 //            while(game.board.getPiece(move.startX, move.startY) == null ) {
@@ -26,12 +29,12 @@ public class Main {
             game.board.applyMove(move.startX, move.startY, move.endX, move.endY);
             game.nextPlayer();
 
-//            if(game.board.checkmate(ChessColor.Black) == true){
+//            if(game.board.checkmate(ChessColor.Black)){
 //                System.out.println("Checkmate: White wins");
 //                gameOver = true;
 //            }
 //
-//            if (game.board.checkmate(ChessColor.White) == true){
+//            if (game.board.checkmate(ChessColor.White)){
 //                System.out.println("Checkmate: Black wins");
 //                gameOver = true;
 //            }
