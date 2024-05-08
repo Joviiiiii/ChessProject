@@ -127,11 +127,35 @@ public class QueenTest {
 
         board.boardDisplay();
 
-       // board.applyMove(0,1,7,2);
-
-        //board.applyMove(new Tile(pawn), 0, 1, 7, 2);
-
         Assertions.assertFalse(queen.canItMove(board, new Move(5,5,7,2,ChessColor.Black)));
+
+    }
+
+    @Test
+    public void canItMoveThroughAnotherPieceFalse() {
+        Board board = new Board();
+        Queen queen = new Queen("Q1", ChessColor.Black, "♛");
+
+
+        Pawn pawn = new Pawn("pawn1", ChessColor.Black, "♟");
+        board.setPiece(queen,0,1);
+        board.setPiece(pawn, 1,2);
+
+
+        board.boardDisplay();
+
+        Assertions.assertFalse(queen.canItMove(board,new Move(0,1,2,3,ChessColor.Black)));
+    }
+
+    @Test
+    public void canItMoveFalseLStraightLineLikeKnight() {
+        Board board = new Board();
+
+        Queen queen = new Queen("Q1", ChessColor.Black, "♛");
+
+        board.setPiece(queen, 5,5);
+
+        Assertions.assertFalse(queen.canItMove(board, new Move(5,5,6,7,ChessColor.Black)));
 
     }
 

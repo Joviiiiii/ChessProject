@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class PawnTest {
 
     @Test
-    public void canItmMoveForPawnTrue() {
+    public void canItMoveForPawnTrueOppColorAtEndPosition() {
         Board board = new Board();
 
         Pawn pawn1 = new Pawn("pawn1", ChessColor.Black, "♟");
@@ -20,7 +20,7 @@ public class PawnTest {
     }
 
     @Test
-    public void canItMoveForPawnFalse() {
+    public void canItMoveForPawnFalseHorizontal() {
         Board board = new Board();
 
         Pawn pawn1 = new Pawn("pawn1", ChessColor.White, "♙");
@@ -30,24 +30,47 @@ public class PawnTest {
     }
 
     @Test
-    public void checkUnobstructedPathTrue() {
+    public void canItMoveBackwardsVerticalFalse() {
         Board board = new Board();
-        board.newBoard();
 
-        Pawn pawn1 = new Pawn("pawn1", ChessColor.Black, "♟");
+        Pawn pawn1 = new Pawn("pawn1", ChessColor.Black, "♙");
+        board.setPiece(pawn1,2,2);
 
+        Assertions.assertFalse(pawn1.canItMove(board, 2, 2, 2, 1));
     }
 
     @Test
-    public void checkUnobstructedPathFalse() {
+    public void canItMoveDiagnolFalse() {
         Board board = new Board();
-        board.newBoard();
-        Pawn pw6 = new Pawn("pw", ChessColor.White, "♙");
-        board.setPiece(pw6,5,0);
-        board.applyMove(new Tile(new Pawn("pawn1", ChessColor.Black, "♟")), 1,0, 5, 0);
 
+        Pawn pawn1 = new Pawn("pawn1", ChessColor.White, "♙");
+        board.setPiece(pawn1,2,2);
 
+        Assertions.assertFalse(pawn1.canItMove(board, 2, 2, 3, 3));
+    }
 
+    @Test
+    public void canItMoveFalseSameColorPieceAtEndPosition() {
+        Board board = new Board();
+
+        Pawn pawn1 = new Pawn("pawn1", ChessColor.Black, "♟");
+        Pawn pawn2 = new Pawn("pawn1", ChessColor.Black, "♙");
+
+        board.setPiece(pawn1, 2,2);
+        board.setPiece(pawn2, 3,3);
+
+        Assertions.assertFalse(pawn1.canItMove(board, 2, 2, 3, 3));
+    }
+
+    @Test
+    public void canItMoveTrueTwoSpacesOnFirstTurn() {
+        Board board = new Board();
+
+        Pawn pawn1 = new Pawn("pawn1", ChessColor.Black, "♟");
+
+        board.setPiece(pawn1, 2,2);
+
+        Assertions.assertFalse(pawn1.canItMove(board, 2, 2, 2, 4));
     }
 
 }
