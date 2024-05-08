@@ -71,6 +71,10 @@ public class Board {
         this.board[startY][startX] = new Tile();
 
     }
+    public void applyMove(Move move) {
+        applyMove(move.startX, move.startY, move.endX, move.endY);
+
+    }
 
     public void applyMove(Tile tile, int startX, int startY, int endX, int endY) {
         applyMove(startX, startY, endX, endY);
@@ -95,7 +99,6 @@ public class Board {
         return true;
 
 
-
 //        if (this.board[colMove][rowMove].piece != null){
 //            return false;
 //        }
@@ -107,10 +110,10 @@ public class Board {
         int rowMove = (startX < endX) ? 1 : -1;
 
         for (int i = startX + rowMove; i != endX; i += rowMove) {
-           if(this.board[y][i].piece != null) {
-               System.out.println(this.board[y][i].piece.symbol);
-               return false;
-           }
+            if (this.board[y][i].piece != null) {
+                System.out.println(this.board[y][i].piece.symbol);
+                return false;
+            }
         }
 //        if(this.board[y][rowMove].piece != null) {
 //            return false;
@@ -130,23 +133,24 @@ public class Board {
 //        }
         return true;
     }
-    public Piece getPiece(int x, int y){
+
+    public Piece getPiece(int x, int y) {
         return board[y][x].getPiece();
     }
 
     // TO DO: fix set piece change x and y to row/col
-    public void setPiece(Piece piece,int x, int y){
+    public void setPiece(Piece piece, int x, int y) {
         board[y][x].setPiece(piece);
     }
 
-    public boolean check(ChessColor color){
+    public boolean check(ChessColor color) {
         int kingX = 0;
         int kingY = 0;
 
 
-        for( int i= 0; i<8; i++){
-            for (int j = 0; j<8; j++){
-                if (board[i][j].piece instanceof King && color == board[i][j].piece.color){
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                if (board[i][j].piece instanceof King && color == board[i][j].piece.color) {
                     kingY = i;
                     kingX = j;
 
@@ -154,15 +158,16 @@ public class Board {
             }
 
         }
-        for (int i = 0; i < 8; i++){
+        for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 Piece piecePos = board[i][j].piece;
                 if (piecePos != null && piecePos.color != color && piecePos.canItMove(this, new Move(j, i, kingX, kingY, color))) {
+                    System.out.println(String.valueOf(color) + " is in check");
                     return true;
                 }
             }
         }
-            return false;
+        return false;
     }
 
     public boolean checkmate(ChessColor color) {
@@ -170,21 +175,27 @@ public class Board {
         int kingY = 0;
 
 
-        for( int i= 0; i<8; i++){
-            for (int j = 0; j<8; j++){
-                if (board[i][j].piece instanceof King && color == board[i][j].piece.color){
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                if (board[i][j].piece instanceof King && color == board[i][j].piece.color) {
                     kingY = i;
                     kingX = j;
-                    if(check(color)) {
-                        if(!board[i][j].piece.canItMove(this, new Move(j, i, kingX, kingY, color))) {
+                    if (check(color)) {
+                        if (!board[i][j].piece.canItMove(this, new Move(j, i, kingX, kingY, color))) {
                             return true;
                         }
                     }
                 }
             }
-                }
+        }
 
         return false;
+    }
+    public boolean doesMoveResultInCheck(Move move,ChessColor color){
+        applyMove(move);
+       boolean kingInCheck = check(color);
+       applyMove(move.endX,move.endY, move.startX, move.startY);
+       return kingInCheck;
     }
 
 

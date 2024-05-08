@@ -7,7 +7,7 @@ public class Main {
             System.out.println("It is: " + game.activePlayer.color + "'s" +  " turn " );
 
             if(game.board.check((game.activePlayer.color))) {
-                System.out.println(game.activePlayer.color + " is in check");
+                //System.out.println(game.activePlayer.color + " is in check");
                     if (game.board.checkmate(game.activePlayer.color)) {
                         System.out.println("Game Over");
                         break;
