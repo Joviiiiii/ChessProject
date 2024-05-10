@@ -8,7 +8,6 @@ public class King extends Piece{
         super(id, color, color == ChessColor.White ? whiteSymbol : blackSymbol);
     }
 
-
     public boolean canItMove(Board board, int startX, int startY, int endX, int endY) {
         int diffX = endX - startX;
         int diffY = endY - startY;

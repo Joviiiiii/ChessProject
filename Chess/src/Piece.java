@@ -8,8 +8,6 @@ public abstract class Piece {
         this.color = color;
         this.symbol = symbol;
     }
-
-    //Move
     public abstract boolean canItMove(Board board, Move move);
 
 }

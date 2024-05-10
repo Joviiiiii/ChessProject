@@ -39,10 +39,4 @@ public class Queen extends Piece{
 
         return false;
     }
-
-//    public boolean canItMove(Board board, Move move) {
-//        return canItMove(board, move.startX, move.startY, move.endX, move.endY);
-//    }
-
-
 }

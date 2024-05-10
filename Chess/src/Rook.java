@@ -29,16 +29,6 @@ public class Rook extends Piece {
         if(move.startX == move.endX) {
             return board.unObstructedPathVertical(move.endX, move.startY, move.endY);
         }
-
-//        if(board.unObstructedPathDiagnol(move.startX, move.startY, move.endX, move.endY)) {
-//            return false;
-//        }
-
         return false;
     }
-
-//    public boolean canItMove(Board board, int startX, int startY, int endX, int endY){
-//        return canItMove(board, new Move(startX, startY, endX, endY, ChessColor.White));
-//    }
-
 }

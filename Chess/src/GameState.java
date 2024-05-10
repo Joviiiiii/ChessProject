@@ -3,7 +3,6 @@ import java.util.Scanner;
 public class GameState {
     Player[] players;
     Board board;
-
     Player activePlayer;
 
     public GameState(Board board, Player[] players) {
@@ -25,13 +24,4 @@ public class GameState {
             this.activePlayer = this.players[0];
         }
      }
-
-//    public void player() {
-//        if (this.board.getPiece(startX, startY).canItMove(this.board, move)) {
-//            return move;
-//        } else {
-//            System.out.println("Please try again");
-//        }
-//
-//    }
 }

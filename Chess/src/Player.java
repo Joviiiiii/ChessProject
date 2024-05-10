@@ -18,7 +18,6 @@ public class Player {
         int endXInt = inputMap.get(endX);
         int endYInt = Integer.parseInt(String.valueOf(endY))-1;
         return new Move(startXInt, startYInt, endXInt, endYInt, this.color);
-
     }
     public Move getInput(Board board){
         int startX;
@@ -31,19 +30,7 @@ public class Player {
         while (!inputIsValid(input, board)) {
             System.out.println("Input was not valid");
             input = scanner.nextLine();
-
-//            System.out.println("Enter the X coordinate of the piece you want to move");
-//            startX = scanner.nextInt();
-//            System.out.println("Enter the Y coordinate of the piece you want to move");
-//            startY = scanner.nextInt();
-//            System.out.println("Enter the X coordinate of where you want to move your piece");
-//            endX = scanner.nextInt();
-//            System.out.println("Enter the Y coordinate of where you want to move your piece");
-//            endY = scanner.nextInt();
-//            Move move = new Move(startX, startY, endX, endY, this.color);
-
         }
-
         return getMove(input);
     }
 
@@ -76,9 +63,7 @@ public class Player {
             if (board.getPiece(startXInt,startYInt-1) != null){
                 return true;
             }
-
         }
-
         return false;
     }
 

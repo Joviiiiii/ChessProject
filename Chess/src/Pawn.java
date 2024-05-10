@@ -29,14 +29,11 @@ public class Pawn extends Piece {
         else {
             return (endX == startX + 1 || endX == startX - 1) && (endY == startY + direction) && board.getPiece(endX, endY).color != this.color;
         }
-
     }
 
     public boolean canItMove(Board board, Move move) {
         return canItMove(board, move.startX, move.startY, move.endX, move.endY);
     }
-
-
 
     private ChessColor getColor() {
         return color;
