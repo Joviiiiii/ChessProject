@@ -173,6 +173,4 @@ public class Board {
         applyMove(move.endX, move.endY, move.startX, move.startY);
         return kingInCheck;
     }
-
-
 }
