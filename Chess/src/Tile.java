@@ -10,7 +10,6 @@ public class Tile {
         this.piece = null;
     }
 
-
     public String toString() {
         if (this.piece == null)
             return " - ";
@@ -23,5 +22,4 @@ public class Tile {
     public void setPiece(Piece piece){
         this.piece = piece;
     }
-
 }
