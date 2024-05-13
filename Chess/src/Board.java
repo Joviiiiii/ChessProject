@@ -188,7 +188,6 @@ public class Board {
             }
         }
         return validMove;
-
     }
 
     public boolean doesMoveResultInCheck(Move move, ChessColor color) {
