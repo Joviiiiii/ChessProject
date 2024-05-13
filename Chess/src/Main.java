@@ -6,12 +6,13 @@ public class Main {
             game.board.boardDisplay();
             System.out.println("It is: " + game.activePlayer.color + "'s" + " turn ");
 
-            if (game.board.check((game.activePlayer.color))) {
+            if (game.board.check(game.activePlayer.color)) {
+                System.out.println(game.activePlayer.color + " is in check");
                 if (game.board.checkmate(game.activePlayer.color)) {
-                    System.out.println("Game Over");
+                    System.out.println("Checkmate: "+ game.activePlayer.color + " loses");
+                    gameOver = true;
                     break;
                 }
-                gameOver = true;
             }
 
             Move move = game.activePlayer.getInput(game.board);

@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Board {
     public Tile[][] board = new Tile[8][8];
 
@@ -139,7 +141,6 @@ public class Board {
             for (int j = 0; j < 8; j++) {
                 Piece piecePos = board[i][j].piece;
                 if (piecePos != null && piecePos.color != color && piecePos.canItMove(this, new Move(j, i, kingX, kingY, color))) {
-                    System.out.println(String.valueOf(color) + " is in check");
                     return true;
                 }
             }
@@ -156,15 +157,38 @@ public class Board {
                 if (board[i][j].piece instanceof King && color == board[i][j].piece.color) {
                     kingY = i;
                     kingX = j;
-                    if (check(color)) {
-                        if (!board[i][j].piece.canItMove(this, new Move(j, i, kingX, kingY, color))) {
-                            return true;
-                        }
-                    }
                 }
             }
         }
-        return false;
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                if(getPiece(j, i) == null){
+                    continue;
+                }
+                if(color != getPiece(j, i).color){
+                    continue;
+                }
+               ArrayList<Move> validMove = validMoves(getPiece(j, i),j , i);
+               for(Move o : validMove){
+                   if(!doesMoveResultInCheck(o, color)){
+                       return false;
+                   }
+               }
+            }
+        }
+        return true;
+    }
+    public ArrayList<Move> validMoves(Piece piece, int X, int Y){
+        ArrayList<Move> validMove = new ArrayList<>();
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                if(piece.canItMove(this, new Move(X, Y, j, i,ChessColor.Black))){
+                    validMove.add(new Move(X, Y, j, i,ChessColor.Black));
+                }
+            }
+        }
+        return validMove;
+
     }
 
     public boolean doesMoveResultInCheck(Move move, ChessColor color) {
